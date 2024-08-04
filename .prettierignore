@@ -1,0 +1,8 @@
+node_modules/
+
+.svelte-kit/
+.output/
+.vercel/
+
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
