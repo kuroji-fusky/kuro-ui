@@ -8,7 +8,7 @@
   "type": "module",
   "workspaces": [
     "packages/**",
-    "web"
+    "web/**"
   ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.0.0",
