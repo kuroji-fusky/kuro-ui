@@ -1,6 +1,12 @@
 # Kuro UI
 
-A component library built by [Kuro][kuro] for React and Svelte.
+A home-grown component library built by [Kuro][kuro].
+
+## Packages
+
+- [`@kuro-ui/react`](/packages/react)
+- [`@kuro-ui/svelte`](/packages/svelte/)
+- [`@kuro-ui/wc`](/packages/web-components/) - web component versions built in Lit
 
 ## Backstory
 
