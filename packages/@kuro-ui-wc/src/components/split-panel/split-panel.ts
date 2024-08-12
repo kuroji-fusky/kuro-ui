@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "lit"
 import { customElement, property, query, state } from "lit/decorators.js"
+import type { ReturnVoid } from "../../types"
 
 @customElement("kuroui-split-panel")
 export class KuroUISplitPanel extends LitElement {
@@ -25,9 +26,9 @@ export class KuroUISplitPanel extends LitElement {
   _isSeparatorDragging = false
 
   // Handlers
-  handleWindowResize: () => void
-  handleMouseDown: () => void
-  handleMouseUp: () => void
+  handleWindowResize: ReturnVoid
+  handleMouseDown: ReturnVoid
+  handleMouseUp: ReturnVoid
 
   @query(".separator")
   separatorEl: Element
