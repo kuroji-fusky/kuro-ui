@@ -6,7 +6,7 @@ A home-grown component library built by [Kuro][kuro].
 
 - [`@kuro-ui/react`](/packages/react)
 - [`@kuro-ui/svelte`](/packages/svelte/)
-- [`@kuro-ui/wc`](/packages/web-components/) - web component versions built in Lit
+- [`@kuro-ui/wc`](/packages/web-components/) - web component versions built in [Lit](https://lit.dev)
 
 ## Backstory
 
