@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "type": "module",
   "devDependencies": {
     "@kuro-ui-internal/utils": "*",
     "@open-wc/testing": "^4.0.0",
