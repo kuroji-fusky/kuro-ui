@@ -1,4 +1,6 @@
-import { createContext, Children, type PropsWithChildren } from "react"
+import { createContext, type PropsWithChildren } from "react"
+import { AccordionItem } from "./AccordionItem"
+import { useValidateChildrenComponents } from "../../hooks"
 
 interface AccordionRootProps {
   /**
@@ -7,16 +9,27 @@ interface AccordionRootProps {
   collapsible?: boolean
 }
 
-const AccordionContext = createContext<{ canBeExpandable: boolean }>({
+interface AccordionContextProps {
+  canBeExpandable?: boolean
+  currentIndex: number | null
+}
+
+export const AccordionContext = createContext<AccordionContextProps>({
   canBeExpandable: false,
+  currentIndex: null,
 })
 
 export function AccordionRoot(props: PropsWithChildren<AccordionRootProps>) {
+  const accordionChildren = useValidateChildrenComponents(props.children, [AccordionItem])
+
   return (
     <AccordionContext.Provider
-      value={{ canBeExpandable: props.collapsible ?? false }}
+      value={{
+        canBeExpandable: props.collapsible ?? false,
+        currentIndex: null,
+      }}
     >
-      <div>{props.children}</div>
+      <div>{accordionChildren}</div>
     </AccordionContext.Provider>
   )
 }

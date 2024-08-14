@@ -19,10 +19,10 @@ type ExtendElementType = ElementType & { name: string }
  * @param childrenProp The `children` prop
  * @param allowedComponents An array of allowed components to be passed
  */
-export function useValidateChildrenComponents<
-  C extends ReactNode,
-  RC extends FC | Component,
->(childrenProp: C, allowedComponents: RC[]) {
+export function useValidateChildrenComponents<RC extends FC | Component>(
+  childrenProp: ReactNode,
+  allowedComponents: RC[],
+) {
   return Children.map(childrenProp, (child) => {
     const isValidChildElement = isValidElement(child)
 
