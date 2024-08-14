@@ -4,7 +4,6 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@kuro-ui-internal/utils": "*",
     "@open-wc/testing": "^4.0.0",
     "lit-analyzer": "^2.0.3"
   },
