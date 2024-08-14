@@ -29,7 +29,7 @@ export function AccordionRoot(props: PropsWithChildren<AccordionRootProps>) {
         currentIndex: null,
       }}
     >
-      <div>{accordionChildren}</div>
+      {accordionChildren}
     </AccordionContext.Provider>
   )
 }

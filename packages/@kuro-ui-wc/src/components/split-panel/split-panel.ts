@@ -8,7 +8,7 @@ export class KuroUISplitPanel extends LitElement {
   windowBreakpoint = "768px"
 
   @property({ type: String, attribute: "container-breakpoint" })
-  containerBreakpoint = null
+  containerBreakpoint = ""
 
   @property({ type: String, attribute: "shelf-min-width", reflect: true })
   shelfMinWidth = "300px"
@@ -33,13 +33,13 @@ export class KuroUISplitPanel extends LitElement {
   @query(".separator")
   separatorEl: Element
 
-  protected firstUpdated() {
+  protected override firstUpdated() {
     const rootEl = this.renderRoot?.firstElementChild
-    const { width: rootWidth } = rootEl.getBoundingClientRect()
+    const { width: rootWidth } = rootEl!.getBoundingClientRect()
 
     const separatorRekt = this.separatorEl.getBoundingClientRect()
 
-    const handleSeparatorDrag = ({ x }) => {
+    const handleSeparatorDrag = ({ x }: MouseEvent) => {
       if (parseInt(this.shelfMinWidth) > x) return
 
       this._currentShelfWidth = x - Math.floor(separatorRekt.width)
@@ -53,8 +53,7 @@ export class KuroUISplitPanel extends LitElement {
       window.addEventListener("mousemove", handleSeparatorDrag)
     }
     this.handleMouseUp = () => {
-      if (!this.isDraggable) return
-      if (!this._isSeparatorDragging) return
+      if (!this.isDraggable || !this._isSeparatorDragging) return
 
       window.removeEventListener("mousemove", handleSeparatorDrag)
 

@@ -34,8 +34,7 @@ export function useValidateChildrenComponents<RC extends FC | Component>(
         .map((type) => (type as ExtendElementType).name || type.toString())
         .join(", ")
 
-      const invalidChildName =
-        isValidChildElement && (child.type as ExtendElementType).name
+      const invalidChildName = isValidChildElement && (child.type as ExtendElementType).name
 
       throw new Error(
         `${invalidChildName} is not a valid component. The allowed components are: ${allowedNames}.`,
