@@ -1,8 +1,9 @@
-import { LitElement, html } from "lit"
+import { html } from "lit"
 import { customElement } from "lit/decorators.js"
+import { KuroUIBaseElement } from "../base-element"
 
 @customElement("kuroui-accordion-wrapper")
-export class KuroUIAccordionWrapper extends LitElement {
+export class KuroUIAccordionWrapper extends KuroUIBaseElement {
   override connectedCallback() {
     super.connectedCallback()
   }
@@ -17,7 +18,7 @@ export class KuroUIAccordionWrapper extends LitElement {
 }
 
 @customElement("kuroui-accordion-item")
-export class KuroUIAccordionItem extends LitElement {
+export class KuroUIAccordionItem extends KuroUIBaseElement {
   render() {
     return html``
   }
