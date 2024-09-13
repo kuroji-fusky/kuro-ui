@@ -8,6 +8,7 @@
   "type": "module",
   "workspaces": [
     "packages/**",
+    "scripts",
     "web/**"
   ],
   "devDependencies": {
