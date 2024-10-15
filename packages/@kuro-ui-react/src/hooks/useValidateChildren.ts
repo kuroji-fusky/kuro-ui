@@ -2,11 +2,11 @@
 
 import {
   Children,
+  isValidElement,
   type Component,
   type ElementType,
   type FC,
   type ReactNode,
-  isValidElement,
 } from "react"
 
 // A hacky-fix for the missing `name` property
@@ -19,9 +19,9 @@ type ExtendElementType = ElementType & { name: string }
  * @param childrenProp The `children` prop
  * @param allowedComponents An array of allowed components to be passed
  */
-export function useValidateChildrenComponents<RC extends FC | Component>(
+export function useValidateChildrenComponents<ValidReactComponent extends FC | Component>(
   childrenProp: ReactNode,
-  allowedComponents: RC[],
+  allowedComponents: ValidReactComponent[],
 ) {
   return Children.map(childrenProp, (child) => {
     const isValidChildElement = isValidElement(child)
@@ -36,9 +36,7 @@ export function useValidateChildrenComponents<RC extends FC | Component>(
 
       const invalidChildName = isValidChildElement && (child.type as ExtendElementType).name
 
-      throw new Error(
-        `${invalidChildName} is not a valid component. The allowed components are: ${allowedNames}.`,
-      )
+      throw new Error(`${invalidChildName} is not a valid component. The allowed components are: ${allowedNames}.`,)
     }
 
     return child

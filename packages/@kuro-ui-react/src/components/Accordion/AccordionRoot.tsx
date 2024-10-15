@@ -20,7 +20,9 @@ export const AccordionContext = createContext<AccordionContextProps>({
 })
 
 export function AccordionRoot(props: PropsWithChildren<AccordionRootProps>) {
-  const accordionChildren = useValidateChildrenComponents(props.children, [AccordionItem])
+  const accordionChildren = useValidateChildrenComponents(props.children, [
+    AccordionItem,
+  ])
 
   return (
     <AccordionContext.Provider
